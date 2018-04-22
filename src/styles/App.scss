@@ -1,0 +1,55 @@
+$barchart-color: #ff6e32;
+$amount-color: #4b4a4b;
+$period-color: #b8b8b8;
+$cell-size: 20px;
+$cell-border-size: 4px;
+$cell-border-color: rgba(0, 0, 0, .1);
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: calc(1vw + 1vh + .5vmin);
+}
+
+.root {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.app-header {
+  display: flex;
+  flex: 0.3 0.3 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-cylinder-wrapper {
+  display: flex;
+  flex: 0.7 0.7 0;
+  align-items: flex-end;
+  justify-content: space-around;
+  background: repeating-linear-gradient(transparent, transparent $cell-size, $cell-border-color $cell-size + $cell-border-size),
+  repeating-linear-gradient(90deg, transparent, transparent $cell-size, $cell-border-color $cell-size + $cell-border-size);
+  padding: 10px;
+}
+
+//Generate classes for the height with percent from 1 till 100
+@for $i from 0 through 100 {
+  .h#{$i} {
+    height: #{$i+'%'};
+  }
+  .t#{$i} {
+    top: #{$i+'%'};
+  }
+}
